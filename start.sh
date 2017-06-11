@@ -8,10 +8,10 @@ mkdir ./hlserver && cd hlserver
 
 # Install Dependencies
 
-sudo apt-get install lib32z1
-sudo apt-get install lib32ncurses5
-sudo apt-get install lib32gcc1
-sudo apt-get install lib32stdc++6
+sudo apt-get -y install lib32z1
+sudo apt-get -y install lib32ncurses5
+sudo apt-get -y install lib32gcc1
+sudo apt-get -y install lib32stdc++6
 
 # Download SteamCMD
 wget http://media.steampowered.com/installer/steamcmd_linux.tar.gz
@@ -42,12 +42,26 @@ echo "Creating Server File(s)"
 
 cd ~/hlserver/tf2/tf/cfg
 
-wget http://github.com/rselwyn/tf2-dedicated-server/server.cfg
+wget https://raw.githubusercontent.com/rselwyn/tf2-dedicated-server/master/server.cfg
 
 echo "Changing some server settings and installing some libraries."
 
 sudo dpkg --add-architecture i386
 sudo apt-get update
-sudo apt-get install steamcmd
+sudo DEBIAN_FRONTEND=noninteractive apt-get -y install steamcmd
 
-sudo apt-get install libtinfo5:i386 libncurses5:i386 libcurl3-gnutls:i386
+sudo apt-get -y install libtinfo5:i386 libncurses5:i386 libcurl3-gnutls:i386
+
+mkdir .steam/sdk32
+cp hlserver/linux64/steamclient.so .steam/sdk32/
+
+echo "Creating Server Start Script"
+
+cd ~/hlserver
+
+touch tf.sh
+
+echo "#!/bin/sh
+tf2/srcds_run -console -game tf -nohltv +sv_pure 1 +map ctf_2fort +maxplayers 24" >> tf.sh
+
+echo "alias tf2server='bash ~/hlserver/tf.sh'" >> ~/.bash_profile
