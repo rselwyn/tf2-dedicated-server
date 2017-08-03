@@ -52,6 +52,8 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get -y install steamcmd
 
 sudo apt-get -y install libtinfo5:i386 libncurses5:i386 libcurl3-gnutls:i386
 
+cd ~
+
 mkdir .steam/sdk32
 cp hlserver/linux64/steamclient.so .steam/sdk32/
 
@@ -65,3 +67,40 @@ echo "#!/bin/sh
 tf2/srcds_run -console -game tf -nohltv +sv_pure 1 +map ctf_2fort +maxplayers 24" >> tf.sh
 
 echo "alias tf2server='bash ~/hlserver/tf.sh'" >> ~/.bash_profile
+
+# Install Competitive CFG
+
+cd ~/hlserver/tf2/tf/cfg
+
+sudo apt-get -y install unzip
+
+# UGC
+
+wget http://www.ugcleague.com/files/configs/UGC_6v6_cfg_v042217.zip
+
+unzip UGC_6v6_cfg_v042217.zip -d .
+
+rm UGC_6v6_cfg_v042217.zip
+
+# ETF2L
+
+wget http://etf2l.org/configs/etf2l_configs.zip
+
+unzip etf2l_configs.zip - d .
+
+rm etf2l_configs.zip
+
+
+# Install a Bunch of Maps
+cd ../maps
+
+wget http://fakkelbrigade.eu/maps/pl_badwater_pro_v9.bsp
+wget http://fakkelbrigade.eu/maps/pl_barnblitz_pro8.bsp
+wget http://fakkelbrigade.eu/maps/pl_borneo_rc4.bsp
+wget http://fakkelbrigade.eu/maps/koth_product_rc8.bsp
+wget http://fakkelbrigade.eu/maps/cp_granary_pro_rc8.bsp
+wget http://fakkelbrigade.eu/maps/cp_reckoner_rc2.bsp
+wget http://fakkelbrigade.eu/maps/cp_sunshine_rc9.bsp
+wget http://fakkelbrigade.eu/maps/ultiduo_baloo_v2.bsp
+wget http://fakkelbrigade.eu/maps/tr_rocket_shooting2.bsp
+
