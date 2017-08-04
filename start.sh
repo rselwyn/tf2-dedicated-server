@@ -86,7 +86,7 @@ rm UGC_6v6_cfg_v042217.zip
 
 wget http://etf2l.org/configs/etf2l_configs.zip
 
-unzip etf2l_configs.zip - d .
+unzip etf2l_configs.zip -d .
 
 rm etf2l_configs.zip
 
@@ -104,3 +104,9 @@ wget http://fakkelbrigade.eu/maps/cp_sunshine_rc9.bsp
 wget http://fakkelbrigade.eu/maps/ultiduo_baloo_v2.bsp
 wget http://fakkelbrigade.eu/maps/tr_rocket_shooting2.bsp
 
+
+# Install Metamod
+cd ~/hlserver/tf2/tf/
+
+wget https://mms.alliedmods.net/mmsdrop/1.10/mmsource-1.10.7-git959-linux.tar.gz
+tar -xvf mmsource-1.10.7-git959-linux.tar.gz
