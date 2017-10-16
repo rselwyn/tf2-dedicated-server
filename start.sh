@@ -110,3 +110,11 @@ cd ~/hlserver/tf2/tf/
 
 wget https://mms.alliedmods.net/mmsdrop/1.10/mmsource-1.10.7-git959-linux.tar.gz
 tar -xvf mmsource-1.10.7-git959-linux.tar.gz
+
+# Install Sourcemod
+wget https://sm.alliedmods.net/smdrop/1.8/sourcemod-1.8.0-git6016-linux.tar.gz
+tar -xvf sourcemod-1.8.0-git6016-linux.tar.gz
+
+# Install TFTrue
+wget http://tftrue.esport-tools.net/TFTrue.zip
+unzip TFTrue.zip -d .
